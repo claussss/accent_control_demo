@@ -29,6 +29,9 @@
       margin: 0 auto;
       padding: 48px 18px 80px;
     }
+    header {
+      text-align: center;
+    }
     header h1 {
       font-size: clamp(1.9rem, 2.8vw, 2.6rem);
       margin: 0 0 0.5rem;
@@ -92,10 +95,6 @@
     td.transcript {
       min-width: 220px;
       max-width: 320px;
-    }
-    td.accent {
-      width: 100px;
-      font-weight: 600;
     }
     audio {
       width: 180px;
@@ -169,10 +168,6 @@
       <p class="competitor-intro">
         Head-to-head comparison with prior systems, using the test subsets described in the paper. Our model is evaluated with <code>t_start=100</code>. Competitor abbreviations: IPAC&nbsp;[1], ACDU&nbsp;[2], CAS&nbsp;[3].
       </p>
-      <p class="competitor-intro">
-        Reference originals are mirrored from the released competitor packages where provided; some references will be refreshed once canonical recordings are cleared for release.
-      </p>
-
       <div class="competitor-block" id="acdu">
         <h3>ACDU&nbsp;[2]</h3>
 
@@ -182,7 +177,6 @@
             <thead>
               <tr>
                 <th>Transcript</th>
-                <th>Accent</th>
                 <th>Original</th>
                 <th>Comp</th>
                 <th>Ours</th>
@@ -191,7 +185,6 @@
             <tbody>
               <tr>
                 <td class="transcript" data-label="Transcript">And nobody thought about that. I think it&#39;s a huge challenge, you know, to our banking operations.</td>
-                <td class="accent" data-label="Accent">Chinese</td>
                 <td data-label="Original">
                   <audio controls preload="none" src="data/ACDU/Original/Chinese/Ceo_Zoom_full-cut_seg3.wav"></audio>
                 </td>
@@ -204,7 +197,6 @@
               </tr>
               <tr>
                 <td class="transcript" data-label="Transcript">And also over the past several weeks cause we had so many first-time users, we also offered, you know.</td>
-                <td class="accent" data-label="Accent">Chinese</td>
                 <td data-label="Original">
                   <audio controls preload="none" src="data/ACDU/Original/Chinese/Ceo_Zoom_full-cut_seg8.wav"></audio>
                 </td>
@@ -217,7 +209,6 @@
               </tr>
               <tr>
                 <td class="transcript" data-label="Transcript">My grandfather, who was the professor of ceramic art. This was done by my father. He is also a professor.</td>
-                <td class="accent" data-label="Accent">Chinese</td>
                 <td data-label="Original">
                   <audio controls preload="none" src="data/ACDU/Original/Chinese/example_1-cut_seg2.wav"></audio>
                 </td>
@@ -230,7 +221,6 @@
               </tr>
               <tr>
                 <td class="transcript" data-label="Transcript">It&#39;s everyone&#39;s dream to have a dragon baby. Jack Ma&#39;s parents must have been very proud, and they are not the only one.</td>
-                <td class="accent" data-label="Accent">Chinese</td>
                 <td data-label="Original">
                   <audio controls preload="none" src="data/ACDU/Original/Chinese/example_4-cut_seg15.wav"></audio>
                 </td>
@@ -251,7 +241,6 @@
             <thead>
               <tr>
                 <th>Transcript</th>
-                <th>Accent</th>
                 <th>Original</th>
                 <th>Comp</th>
                 <th>Ours</th>
@@ -260,7 +249,6 @@
             <tbody>
               <tr>
                 <td class="transcript" data-label="Transcript">To the world, to the neighboring kingdoms. So who was showcasing culture? Artists were showcasing culture, dancers, musicians.</td>
-                <td class="accent" data-label="Accent">Hindi</td>
                 <td data-label="Original">
                   <audio controls preload="none" src="data/ACDU/Original/Indian/example_3-cut_seg1.wav"></audio>
                 </td>
@@ -273,7 +261,6 @@
               </tr>
               <tr>
                 <td class="transcript" data-label="Transcript">Democracy. I&#39;m sure life is better, but not so good for the artists at that point. Because all of you guys weren&#39;t paying money to the artists.</td>
-                <td class="accent" data-label="Accent">Hindi</td>
                 <td data-label="Original">
                   <audio controls preload="none" src="data/ACDU/Original/Indian/example_3-cut_seg3.wav"></audio>
                 </td>
@@ -286,7 +273,6 @@
               </tr>
               <tr>
                 <td class="transcript" data-label="Transcript">TV news. The media holds a mirror up to society, but who will hold a mirror up to the media?</td>
-                <td class="accent" data-label="Accent">Hindi</td>
                 <td data-label="Original">
                   <audio controls preload="none" src="data/ACDU/Original/Indian/indian_news_1-cut_seg1.wav"></audio>
                 </td>
@@ -299,7 +285,6 @@
               </tr>
               <tr>
                 <td class="transcript" data-label="Transcript">But my roots go back to a small village in, called Edoor in Iritty, Kerala. Though I was raised, schooled.</td>
-                <td class="accent" data-label="Accent">Hindi</td>
                 <td data-label="Original">
                   <audio controls preload="none" src="data/ACDU/Original/Indian/indian_news_3-cut_seg6.wav"></audio>
                 </td>
@@ -320,7 +305,6 @@
             <thead>
               <tr>
                 <th>Transcript</th>
-                <th>Accent</th>
                 <th>Original</th>
                 <th>Comp</th>
                 <th>Ours</th>
@@ -329,7 +313,6 @@
             <tbody>
               <tr>
                 <td class="transcript" data-label="Transcript">Childhood. For me stars are not only a beauty that darkness has given to us they.</td>
-                <td class="accent" data-label="Accent">Vietnamese</td>
                 <td data-label="Original">
                   <audio controls preload="none" src="data/ACDU/Original/Vienamese/example_4-cut%20(1)_seg3.wav"></audio>
                 </td>
@@ -342,7 +325,6 @@
               </tr>
               <tr>
                 <td class="transcript" data-label="Transcript">But my childhood was not at all about skyscrapers, shopping malls, or arcades. It was surprisingly peaceful.</td>
-                <td class="accent" data-label="Accent">Vietnamese</td>
                 <td data-label="Original">
                   <audio controls preload="none" src="data/ACDU/Original/Vienamese/example_4-cut%20(1)_seg10.wav"></audio>
                 </td>
@@ -355,7 +337,6 @@
               </tr>
               <tr>
                 <td class="transcript" data-label="Transcript">So she asked, what happened, mommy? And the queen was so exhausted. She says somebody stole my.</td>
-                <td class="accent" data-label="Accent">Vietnamese</td>
                 <td data-label="Original">
                   <audio controls preload="none" src="data/ACDU/Original/Vienamese/example_6-cut_seg1.wav"></audio>
                 </td>
@@ -368,7 +349,6 @@
               </tr>
               <tr>
                 <td class="transcript" data-label="Transcript">After one very famous speech at the Stanford University, Steve Jobs.</td>
-                <td class="accent" data-label="Accent">Vietnamese</td>
                 <td data-label="Original">
                   <audio controls preload="none" src="data/ACDU/Original/Vienamese/example_6-cut_seg14.wav"></audio>
                 </td>
@@ -393,7 +373,6 @@
             <thead>
               <tr>
                 <th>Transcript</th>
-                <th>Accent</th>
                 <th>Original</th>
                 <th>Comp</th>
                 <th>Ours</th>
@@ -402,7 +381,6 @@
             <tbody>
               <tr>
                 <td class="transcript" data-label="Transcript">Author of the danger trail Philip Steels etc.</td>
-                <td class="accent" data-label="Accent">Chinese</td>
                 <td data-label="Original">
                   <audio controls preload="none" src="data/CAS/Original/Chinese/chinese_arctic_a0001.wav"></audio>
                 </td>
@@ -415,7 +393,6 @@
               </tr>
               <tr>
                 <td class="transcript" data-label="Transcript">I&#39;m playing a single hand in what looks like a losing game.</td>
-                <td class="accent" data-label="Accent">Chinese</td>
                 <td data-label="Original">
                   <audio controls preload="none" src="data/CAS/Original/Chinese/chinese_arctic_a0010.wav"></audio>
                 </td>
@@ -428,7 +405,6 @@
               </tr>
               <tr>
                 <td class="transcript" data-label="Transcript">Now you&#39;re coming down to business Phil he exclaimed.</td>
-                <td class="accent" data-label="Accent">Chinese</td>
                 <td data-label="Original">
                   <audio controls preload="none" src="data/CAS/Original/Chinese/chinese_arctic_a0014.wav"></audio>
                 </td>
@@ -441,7 +417,6 @@
               </tr>
               <tr>
                 <td class="transcript" data-label="Transcript">I suppose you wonder why she is coming up here.</td>
-                <td class="accent" data-label="Accent">Chinese</td>
                 <td data-label="Original">
                   <audio controls preload="none" src="data/CAS/Original/Chinese/chinese_arctic_a0040.wav"></audio>
                 </td>
@@ -462,7 +437,6 @@
             <thead>
               <tr>
                 <th>Transcript</th>
-                <th>Accent</th>
                 <th>Original</th>
                 <th>Comp</th>
                 <th>Ours</th>
@@ -471,7 +445,6 @@
             <tbody>
               <tr>
                 <td class="transcript" data-label="Transcript">There was nothing for us but the wide raw ocean.</td>
-                <td class="accent" data-label="Accent">Hindi</td>
                 <td data-label="Original">
                   <audio controls preload="none" src="data/CAS/Original/Indian/ASI_arctic_b0415.wav"></audio>
                 </td>
@@ -484,7 +457,6 @@
               </tr>
               <tr>
                 <td class="transcript" data-label="Transcript">He had become a man very early in life.</td>
-                <td class="accent" data-label="Accent">Hindi</td>
                 <td data-label="Original">
                   <audio controls preload="none" src="data/CAS/Original/Indian/RRBI_arctic_b0442.wav"></audio>
                 </td>
@@ -497,7 +469,6 @@
               </tr>
               <tr>
                 <td class="transcript" data-label="Transcript">He was manifestly distressed by my coming.</td>
-                <td class="accent" data-label="Accent">Hindi</td>
                 <td data-label="Original">
                   <audio controls preload="none" src="data/CAS/Original/Indian/SVBI_arctic_b0474.wav"></audio>
                 </td>
@@ -510,7 +481,6 @@
               </tr>
               <tr>
                 <td class="transcript" data-label="Transcript">Eighteen he added.</td>
-                <td class="accent" data-label="Accent">Hindi</td>
                 <td data-label="Original">
                   <audio controls preload="none" src="data/CAS/Original/Indian/TNI_arctic_b0454.wav"></audio>
                 </td>
@@ -531,7 +501,6 @@
             <thead>
               <tr>
                 <th>Transcript</th>
-                <th>Accent</th>
                 <th>Original</th>
                 <th>Comp</th>
                 <th>Ours</th>
@@ -540,7 +509,6 @@
             <tbody>
               <tr>
                 <td class="transcript" data-label="Transcript">I was about to do this when cooler judgment prevailed.</td>
-                <td class="accent" data-label="Accent">Korean</td>
                 <td data-label="Original">
                   <audio controls preload="none" src="data/CAS/Original/Korean/korean_arctic_a0025.wav"></audio>
                 </td>
@@ -553,7 +521,6 @@
               </tr>
               <tr>
                 <td class="transcript" data-label="Transcript">Their forces were already moving into the north country.</td>
-                <td class="accent" data-label="Accent">Korean</td>
                 <td data-label="Original">
                   <audio controls preload="none" src="data/CAS/Original/Korean/korean_arctic_a0029.wav"></audio>
                 </td>
@@ -566,7 +533,6 @@
               </tr>
               <tr>
                 <td class="transcript" data-label="Transcript">I suppose you wonder why she is coming up here.</td>
-                <td class="accent" data-label="Accent">Korean</td>
                 <td data-label="Original">
                   <audio controls preload="none" src="data/CAS/Original/Korean/korean_arctic_a0040.wav"></audio>
                 </td>
@@ -579,7 +545,6 @@
               </tr>
               <tr>
                 <td class="transcript" data-label="Transcript">And now down there Eileen was waiting for him.</td>
-                <td class="accent" data-label="Accent">Korean</td>
                 <td data-label="Original">
                   <audio controls preload="none" src="data/CAS/Original/Korean/korean_arctic_a0074.wav"></audio>
                 </td>
@@ -604,7 +569,6 @@
             <thead>
               <tr>
                 <th>Transcript</th>
-                <th>Accent</th>
                 <th>Original</th>
                 <th>Comp</th>
                 <th>Ours</th>
@@ -613,7 +577,6 @@
             <tbody>
               <tr>
                 <td class="transcript" data-label="Transcript">Philip bent lower and stared into the face of the dead man.</td>
-                <td class="accent" data-label="Accent">Arabic</td>
                 <td data-label="Original">
                   <audio controls preload="none" src="data/IPAC/Original/Arabic/a0087.wav"></audio>
                 </td>
@@ -626,7 +589,6 @@
               </tr>
               <tr>
                 <td class="transcript" data-label="Transcript">For a few moments he ate in silence.</td>
-                <td class="accent" data-label="Accent">Arabic</td>
                 <td data-label="Original">
                   <audio controls preload="none" src="data/IPAC/Original/Arabic/b0044.wav"></audio>
                 </td>
@@ -639,7 +601,6 @@
               </tr>
               <tr>
                 <td class="transcript" data-label="Transcript">Again the girls applauded and Missus Hall cried.</td>
-                <td class="accent" data-label="Accent">Arabic</td>
                 <td data-label="Original">
                   <audio controls preload="none" src="data/IPAC/Original/Arabic/b0280.wav"></audio>
                 </td>
@@ -652,7 +613,6 @@
               </tr>
               <tr>
                 <td class="transcript" data-label="Transcript">I&#39;ll tell you the librarian said with a brightening face.</td>
-                <td class="accent" data-label="Accent">Arabic</td>
                 <td data-label="Original">
                   <audio controls preload="none" src="data/IPAC/Original/Arabic/b0534.wav"></audio>
                 </td>
@@ -673,7 +633,6 @@
             <thead>
               <tr>
                 <th>Transcript</th>
-                <th>Accent</th>
                 <th>Original</th>
                 <th>Comp</th>
                 <th>Ours</th>
@@ -682,7 +641,6 @@
             <tbody>
               <tr>
                 <td class="transcript" data-label="Transcript">If I ever needed a fighter in my life I need one now.</td>
-                <td class="accent" data-label="Accent">Chinese</td>
                 <td data-label="Original">
                   <audio controls preload="none" src="data/IPAC/Original/Chinese/a0011.wav"></audio>
                 </td>
@@ -695,7 +653,6 @@
               </tr>
               <tr>
                 <td class="transcript" data-label="Transcript">It fairly clubbed me into recognizing it.</td>
-                <td class="accent" data-label="Accent">Chinese</td>
                 <td data-label="Original">
                   <audio controls preload="none" src="data/IPAC/Original/Chinese/a0021.wav"></audio>
                 </td>
@@ -708,7 +665,6 @@
               </tr>
               <tr>
                 <td class="transcript" data-label="Transcript">To my surprise he began to show actual enthusiasm in my favor.</td>
-                <td class="accent" data-label="Accent">Chinese</td>
                 <td data-label="Original">
                   <audio controls preload="none" src="data/IPAC/Original/Chinese/a0027.wav"></audio>
                 </td>
@@ -721,7 +677,6 @@
               </tr>
               <tr>
                 <td class="transcript" data-label="Transcript">Since then some mysterious force has been fighting us at every step.</td>
-                <td class="accent" data-label="Accent">Chinese</td>
                 <td data-label="Original">
                   <audio controls preload="none" src="data/IPAC/Original/Chinese/a0032.wav"></audio>
                 </td>
@@ -742,7 +697,6 @@
             <thead>
               <tr>
                 <th>Transcript</th>
-                <th>Accent</th>
                 <th>Original</th>
                 <th>Comp</th>
                 <th>Ours</th>
@@ -751,7 +705,6 @@
             <tbody>
               <tr>
                 <td class="transcript" data-label="Transcript">Gregson shoved back his chair and rose to his feet.</td>
-                <td class="accent" data-label="Accent">Hindi</td>
                 <td data-label="Original">
                   <audio controls preload="none" src="data/IPAC/Original/Indian/arctic_a0012.wav"></audio>
                 </td>
@@ -764,7 +717,6 @@
               </tr>
               <tr>
                 <td class="transcript" data-label="Transcript">A combination of Canadian capital quickly organized and petitioned for the same privileges.</td>
-                <td class="accent" data-label="Accent">Hindi</td>
                 <td data-label="Original">
                   <audio controls preload="none" src="data/IPAC/Original/Indian/arctic_a0023.wav"></audio>
                 </td>
@@ -777,7 +729,6 @@
               </tr>
               <tr>
                 <td class="transcript" data-label="Transcript">Whitefish Gregson whitefish and trout.</td>
-                <td class="accent" data-label="Accent">Hindi</td>
                 <td data-label="Original">
                   <audio controls preload="none" src="data/IPAC/Original/Indian/arctic_b0014.wav"></audio>
                 </td>
@@ -790,7 +741,6 @@
               </tr>
               <tr>
                 <td class="transcript" data-label="Transcript">A month in Australia would finish me.</td>
-                <td class="accent" data-label="Accent">Hindi</td>
                 <td data-label="Original">
                   <audio controls preload="none" src="data/IPAC/Original/Indian/arctic_b0203.wav"></audio>
                 </td>
@@ -811,7 +761,6 @@
             <thead>
               <tr>
                 <th>Transcript</th>
-                <th>Accent</th>
                 <th>Original</th>
                 <th>Comp</th>
                 <th>Ours</th>
@@ -820,7 +769,6 @@
             <tbody>
               <tr>
                 <td class="transcript" data-label="Transcript">Philip bent lower and stared into the face of the dead man.</td>
-                <td class="accent" data-label="Accent">Korean</td>
                 <td data-label="Original">
                   <audio controls preload="none" src="data/IPAC/Original/Korean/a0087.wav"></audio>
                 </td>
@@ -833,7 +781,6 @@
               </tr>
               <tr>
                 <td class="transcript" data-label="Transcript">For a few moments he ate in silence.</td>
-                <td class="accent" data-label="Accent">Korean</td>
                 <td data-label="Original">
                   <audio controls preload="none" src="data/IPAC/Original/Korean/b0044.wav"></audio>
                 </td>
@@ -846,7 +793,6 @@
               </tr>
               <tr>
                 <td class="transcript" data-label="Transcript">Again the girls applauded and Missus Hall cried.</td>
-                <td class="accent" data-label="Accent">Korean</td>
                 <td data-label="Original">
                   <audio controls preload="none" src="data/IPAC/Original/Korean/b0280.wav"></audio>
                 </td>
@@ -859,7 +805,6 @@
               </tr>
               <tr>
                 <td class="transcript" data-label="Transcript">I&#39;ll tell you the librarian said with a brightening face.</td>
-                <td class="accent" data-label="Accent">Korean</td>
                 <td data-label="Original">
                   <audio controls preload="none" src="data/IPAC/Original/Korean/b0534.wav"></audio>
                 </td>
@@ -880,7 +825,6 @@
             <thead>
               <tr>
                 <th>Transcript</th>
-                <th>Accent</th>
                 <th>Original</th>
                 <th>Comp</th>
                 <th>Ours</th>
@@ -889,7 +833,6 @@
             <tbody>
               <tr>
                 <td class="transcript" data-label="Transcript">A combination of Canadian capital quickly organized and petitioned for the same privileges.</td>
-                <td class="accent" data-label="Accent">Vietnamese</td>
                 <td data-label="Original">
                   <audio controls preload="none" src="data/IPAC/Original/Vienamese/a0023.wav"></audio>
                 </td>
@@ -902,7 +845,6 @@
               </tr>
               <tr>
                 <td class="transcript" data-label="Transcript">The promoter&#39;s eyes were heavy with little puffy bags under them.</td>
-                <td class="accent" data-label="Accent">Vietnamese</td>
                 <td data-label="Original">
                   <audio controls preload="none" src="data/IPAC/Original/Vienamese/a0073.wav"></audio>
                 </td>
@@ -915,7 +857,6 @@
               </tr>
               <tr>
                 <td class="transcript" data-label="Transcript">The temperature dropped to fifty below zero and remained there the whole trip.</td>
-                <td class="accent" data-label="Accent">Vietnamese</td>
                 <td data-label="Original">
                   <audio controls preload="none" src="data/IPAC/Original/Vienamese/b0358.wav"></audio>
                 </td>
@@ -928,7 +869,6 @@
               </tr>
               <tr>
                 <td class="transcript" data-label="Transcript">To my dearest and always appreciated friend I submit myself.</td>
-                <td class="accent" data-label="Accent">Vietnamese</td>
                 <td data-label="Original">
                   <audio controls preload="none" src="data/IPAC/Original/Vienamese/b0450.wav"></audio>
                 </td>
@@ -948,9 +888,9 @@
     <footer>
       <h2>References</h2>
       <ol>
-        <li>Y. Fang, X. Li, J. Yi, et al. <em>Improving Pronunciation and Accent Conversion through Knowledge Distillation and Synthetic Groundtruth from Native TTS.</em></li>
-        <li>Y. Chen, X. Wang, H. Lee, <em>Accent Conversion Using Discrete Units with Parallel Data Synthesized from Controllable Accented TTS.</em></li>
-        <li>J. Kim, S. Lee, M. Hahn, <em>Convert and Speak: Zero-shot Accent Conversion with Minimum Supervision.</em></li>
+        <li>T. N. Nguyen, S. Akti, N. Q. Pham, and A. Waibel, “Improving Pronunciation and Accent Conversion through Knowledge Distillation and Synthetic Ground-Truth from Native TTS,” <em>arXiv</em> preprint arXiv:2410.14997, 2025. [Online]. Available: <a href="https://arxiv.org/abs/2410.14997">https://arxiv.org/abs/2410.14997</a></li>
+        <li>T. N. Nguyen, N. Q. Pham, and A. Waibel, “Accent conversion using discrete units with parallel data synthesized from controllable accented TTS,” <em>arXiv</em> preprint arXiv:2410.03734, 2024. [Online]. Available: <a href="https://arxiv.org/abs/2410.03734">https://arxiv.org/abs/2410.03734</a></li>
+        <li>Z. Jia, H. Xue, X. Peng, and Y. Lu, “Convert and speak: Zero-shot accent conversion with minimum supervision,” in <em>Proc. 32nd ACM Int. Conf. Multimedia (MM ’24)</em>, Oct. 2024, pp. 4446–4454. doi: <a href="http://dx.doi.org/10.1145/3664647.3681539">10.1145/3664647.3681539</a></li>
       </ol>
     </footer>
   </div>
