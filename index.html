@@ -2,30 +2,967 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>FAC-FACodec Demo Placeholder</title>
+  <title>FAC-FACodec Accent Conversion Demo</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="robots" content="noindex"> <!-- remove after camera-ready -->
+  <meta name="robots" content="noindex">
   <style>
-    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
-         margin:0; padding:48px 16px; color:#111}
-    .wrap{max-width:840px; margin:0 auto}
-    h1{font-size:1.6rem; margin:0 0 8px}
-    .card{border:1px solid #e5e7eb; border-radius:12px; padding:20px; margin-top:16px}
-    footer{margin-top:32px; font-size:.9rem; color:#555}
-    a{color:#0b66c2; text-decoration:none}
+    :root {
+      color-scheme: light dark;
+      --bg: #ffffff;
+      --fg: #111111;
+      --muted: #4b5563;
+      --accent: #0b66c2;
+      --border: #e5e7eb;
+      --surface: #f9fafb;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #111827;
+        --fg: #e5e7eb;
+        --muted: #9ca3af;
+        --accent: #60a5fa;
+        --border: #1f2937;
+        --surface: #18212f;
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+      line-height: 1.55;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .wrap {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 48px 18px 80px;
+    }
+    header h1 {
+      font-size: clamp(1.9rem, 2.8vw, 2.6rem);
+      margin: 0 0 0.5rem;
+      line-height: 1.25;
+    }
+    header .authors,
+    header .affiliation,
+    header .contact {
+      margin: 0.2rem 0;
+      font-size: 0.98rem;
+    }
+    header .affiliation span { display: block; }
+    section { margin-top: 40px; }
+    section h2 { margin: 0 0 16px; font-size: 1.4rem; }
+    .card {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: var(--surface);
+      padding: 20px 22px;
+      margin-top: 20px;
+    }
+    .card p { margin: 0.4rem 0; }
+    .competitor-intro {
+      margin-bottom: 24px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    .competitor-block {
+      margin-bottom: 48px;
+    }
+    .competitor-block h3 {
+      margin: 0 0 12px;
+      font-size: 1.2rem;
+    }
+    .accent-block {
+      margin: 18px 0 28px;
+    }
+    .accent-block h4 {
+      margin: 0 0 12px;
+      font-size: 1.05rem;
+      color: var(--accent);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+      background: var(--bg);
+      border: 1px solid var(--border);
+    }
+    thead {
+      background: var(--surface);
+      text-transform: uppercase;
+      font-size: 0.78rem;
+      letter-spacing: 0.05em;
+    }
+    th, td {
+      border: 1px solid var(--border);
+      padding: 10px;
+      vertical-align: top;
+    }
+    td.transcript {
+      min-width: 220px;
+      max-width: 320px;
+    }
+    td.accent {
+      width: 100px;
+      font-weight: 600;
+    }
+    audio {
+      width: 180px;
+    }
+    .placeholder {
+      color: var(--muted);
+      font-style: italic;
+    }
+    footer {
+      margin-top: 64px;
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+    footer h2 {
+      font-size: 1.1rem;
+      color: var(--fg);
+      margin-bottom: 10px;
+    }
+    ol {
+      padding-left: 18px;
+      margin: 0.3rem 0 0;
+    }
+    @media (max-width: 760px) {
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+      thead { display: none; }
+      tr { margin-bottom: 16px; padding: 12px; border: 1px solid var(--border); border-radius: 12px; background: var(--surface); }
+      td { border: none; padding: 6px 0; }
+      td::before {
+        content: attr(data-label);
+        display: block;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: var(--muted);
+        margin-bottom: 4px;
+      }
+      audio { width: 100%; }
+    }
   </style>
 </head>
 <body>
   <div class="wrap">
-    <h1>FAC-FACodec: Controllable Foreign Accent Conversion</h1>
-    <div class="card">
-      <p><strong>Demo page placeholder.</strong> Audio samples and code will be added after the review period.</p>
-      <p>If you’re reading the paper, bookmark this URL for the final demo.</p>
-    </div>
+    <header>
+      <h1>FAC-FACodec: Controllable Zero-Shot Foreign Accent Conversion with Factorized Speech Codec</h1>
+      <p class="authors">Yurii Halychanskyi, Cameron Churchwell, Yutong Wen, Volodymyr Kindratenko</p>
+      <p class="affiliation">
+        <span>The Grainger College of Engineering, Siebel School of Computing and Data Science</span>
+        <span>University of Illinois Urbana-Champaign, Urbana, IL, USA</span>
+      </p>
+      <p class="contact"><a href="mailto:yuriih2@illinois.edu">{yuriih2, cc178, yutong12, kindrtnk}@illinois.edu</a></p>
+    </header>
+
+    <section>
+      <h2>Abstract</h2>
+      <div class="card">
+        <p>Previous accent conversion (AC) methods, including foreign accent conversion (FAC), lack explicit control over the degree of modification. Because accent modification can alter the perceived speaker identity, balancing conversion strength and identity preservation is crucial. We present an AC framework that provides an explicit, user-controllable parameter for accent modification. The method targets pronunciation while preserving suprasegmental cues such as intonation and phoneme durations. Results show performance comparable to recent AC systems, stronger preservation of speaker identity, and unique support for controllable accent conversion.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Code Release</h2>
+      <div class="card">
+        <p><strong>Coming soon:</strong> The FAC-FACodec repository will be linked here after the review process concludes.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Competitor Comparison</h2>
+      <p class="competitor-intro">
+        Head-to-head comparison with prior systems. Audios from each competitor section are drawn from the test subsets described in the paper. Each metric column contains two subcolumns: Comp (competitor) and Ours, evaluated on the same subset with our pipeline using <code>t_start=100</code>. Competitor abbreviations: IPAC&nbsp;[1], ACDU&nbsp;[2], CAS&nbsp;[3].
+      </p>
+      <p class="competitor-intro">
+        Reference originals are mirrored from the released competitor packages where provided; some references will be refreshed once canonical recordings are cleared for release.
+      </p>
+
+      <div class="competitor-block" id="acdu">
+        <h3>ACDU&nbsp;[2]</h3>
+
+        <div class="accent-block">
+          <h4>Chinese</h4>
+          <table>
+            <thead>
+              <tr>
+                <th>Transcript</th>
+                <th>Accent</th>
+                <th>Original</th>
+                <th>Comp</th>
+                <th>Ours</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="transcript" data-label="Transcript">And nobody thought about that. I think it&#39;s a huge challenge, you know, to our banking operations.</td>
+                <td class="accent" data-label="Accent">Chinese</td>
+                <td data-label="Original">
+                  <audio controls preload="none" src="data/ACDU/Original/Chinese/Ceo_Zoom_full-cut_seg3.wav"></audio>
+                </td>
+                <td data-label="Comp">
+                  <audio controls preload="none" src="data/ACDU/Original/Chinese/Ceo_Zoom_full-cut_seg3.wav"></audio>
+                </td>
+                <td data-label="Ours">
+                  <audio controls preload="none" src="data/ACDU/Our/Chinese/Ceo_Zoom_full-cut_seg3.wav"></audio>
+                </td>
+              </tr>
+              <tr>
+                <td class="transcript" data-label="Transcript">And also over the past several weeks cause we had so many first-time users, we also offered, you know.</td>
+                <td class="accent" data-label="Accent">Chinese</td>
+                <td data-label="Original">
+                  <audio controls preload="none" src="data/ACDU/Original/Chinese/Ceo_Zoom_full-cut_seg8.wav"></audio>
+                </td>
+                <td data-label="Comp">
+                  <audio controls preload="none" src="data/ACDU/Original/Chinese/Ceo_Zoom_full-cut_seg8.wav"></audio>
+                </td>
+                <td data-label="Ours">
+                  <audio controls preload="none" src="data/ACDU/Our/Chinese/Ceo_Zoom_full-cut_seg8.wav"></audio>
+                </td>
+              </tr>
+              <tr>
+                <td class="transcript" data-label="Transcript">My grandfather, who was the professor of ceramic art. This was done by my father. He is also a professor.</td>
+                <td class="accent" data-label="Accent">Chinese</td>
+                <td data-label="Original">
+                  <audio controls preload="none" src="data/ACDU/Original/Chinese/example_1-cut_seg2.wav"></audio>
+                </td>
+                <td data-label="Comp">
+                  <audio controls preload="none" src="data/ACDU/Original/Chinese/example_1-cut_seg2.wav"></audio>
+                </td>
+                <td data-label="Ours">
+                  <audio controls preload="none" src="data/ACDU/Our/Chinese/example_1-cut_seg2.wav"></audio>
+                </td>
+              </tr>
+              <tr>
+                <td class="transcript" data-label="Transcript">It&#39;s everyone&#39;s dream to have a dragon baby. Jack Ma&#39;s parents must have been very proud, and they are not the only one.</td>
+                <td class="accent" data-label="Accent">Chinese</td>
+                <td data-label="Original">
+                  <audio controls preload="none" src="data/ACDU/Original/Chinese/example_4-cut_seg15.wav"></audio>
+                </td>
+                <td data-label="Comp">
+                  <audio controls preload="none" src="data/ACDU/Original/Chinese/example_4-cut_seg15.wav"></audio>
+                </td>
+                <td data-label="Ours">
+                  <audio controls preload="none" src="data/ACDU/Our/Chinese/example_4-cut_seg15.wav"></audio>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="accent-block">
+          <h4>Indian</h4>
+          <table>
+            <thead>
+              <tr>
+                <th>Transcript</th>
+                <th>Accent</th>
+                <th>Original</th>
+                <th>Comp</th>
+                <th>Ours</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="transcript" data-label="Transcript">To the world, to the neighboring kingdoms. So who was showcasing culture? Artists were showcasing culture, dancers, musicians.</td>
+                <td class="accent" data-label="Accent">Indian</td>
+                <td data-label="Original">
+                  <audio controls preload="none" src="data/ACDU/Original/Indian/example_3-cut_seg1.wav"></audio>
+                </td>
+                <td data-label="Comp">
+                  <audio controls preload="none" src="data/ACDU/Original/Indian/example_3-cut_seg1.wav"></audio>
+                </td>
+                <td data-label="Ours">
+                  <audio controls preload="none" src="data/ACDU/Our/Indian/example_3-cut_seg1.wav"></audio>
+                </td>
+              </tr>
+              <tr>
+                <td class="transcript" data-label="Transcript">Democracy. I&#39;m sure life is better, but not so good for the artists at that point. Because all of you guys weren&#39;t paying money to the artists.</td>
+                <td class="accent" data-label="Accent">Indian</td>
+                <td data-label="Original">
+                  <audio controls preload="none" src="data/ACDU/Original/Indian/example_3-cut_seg3.wav"></audio>
+                </td>
+                <td data-label="Comp">
+                  <audio controls preload="none" src="data/ACDU/Original/Indian/example_3-cut_seg3.wav"></audio>
+                </td>
+                <td data-label="Ours">
+                  <audio controls preload="none" src="data/ACDU/Our/Indian/example_3-cut_seg3.wav"></audio>
+                </td>
+              </tr>
+              <tr>
+                <td class="transcript" data-label="Transcript">TV news. The media holds a mirror up to society, but who will hold a mirror up to the media?</td>
+                <td class="accent" data-label="Accent">Indian</td>
+                <td data-label="Original">
+                  <audio controls preload="none" src="data/ACDU/Original/Indian/indian_news_1-cut_seg1.wav"></audio>
+                </td>
+                <td data-label="Comp">
+                  <audio controls preload="none" src="data/ACDU/Original/Indian/indian_news_1-cut_seg1.wav"></audio>
+                </td>
+                <td data-label="Ours">
+                  <audio controls preload="none" src="data/ACDU/Our/Indian/indian_news_1-cut_seg1.wav"></audio>
+                </td>
+              </tr>
+              <tr>
+                <td class="transcript" data-label="Transcript">But my roots go back to a small village in, called Edoor in Iritty, Kerala. Though I was raised, schooled.</td>
+                <td class="accent" data-label="Accent">Indian</td>
+                <td data-label="Original">
+                  <audio controls preload="none" src="data/ACDU/Original/Indian/indian_news_3-cut_seg6.wav"></audio>
+                </td>
+                <td data-label="Comp">
+                  <audio controls preload="none" src="data/ACDU/Original/Indian/indian_news_3-cut_seg6.wav"></audio>
+                </td>
+                <td data-label="Ours">
+                  <audio controls preload="none" src="data/ACDU/Our/Indian/indian_news_3-cut_seg6.wav"></audio>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="accent-block">
+          <h4>Vietnamese</h4>
+          <table>
+            <thead>
+              <tr>
+                <th>Transcript</th>
+                <th>Accent</th>
+                <th>Original</th>
+                <th>Comp</th>
+                <th>Ours</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="transcript" data-label="Transcript">Childhood. For me stars are not only a beauty that darkness has given to us they.</td>
+                <td class="accent" data-label="Accent">Vietnamese</td>
+                <td data-label="Original">
+                  <audio controls preload="none" src="data/ACDU/Original/Vienamese/example_4-cut%20(1)_seg3.wav"></audio>
+                </td>
+                <td data-label="Comp">
+                  <audio controls preload="none" src="data/ACDU/Original/Vienamese/example_4-cut%20(1)_seg3.wav"></audio>
+                </td>
+                <td data-label="Ours">
+                  <audio controls preload="none" src="data/ACDU/Our/Vienamese/example_4-cut%20(1)_seg3.wav"></audio>
+                </td>
+              </tr>
+              <tr>
+                <td class="transcript" data-label="Transcript">But my childhood was not at all about skyscrapers, shopping malls, or arcades. It was surprisingly peaceful.</td>
+                <td class="accent" data-label="Accent">Vietnamese</td>
+                <td data-label="Original">
+                  <audio controls preload="none" src="data/ACDU/Original/Vienamese/example_4-cut%20(1)_seg10.wav"></audio>
+                </td>
+                <td data-label="Comp">
+                  <audio controls preload="none" src="data/ACDU/Original/Vienamese/example_4-cut%20(1)_seg10.wav"></audio>
+                </td>
+                <td data-label="Ours">
+                  <audio controls preload="none" src="data/ACDU/Our/Vienamese/example_4-cut%20(1)_seg10.wav"></audio>
+                </td>
+              </tr>
+              <tr>
+                <td class="transcript" data-label="Transcript">So she asked, what happened, mommy? And the queen was so exhausted. She says somebody stole my.</td>
+                <td class="accent" data-label="Accent">Vietnamese</td>
+                <td data-label="Original">
+                  <audio controls preload="none" src="data/ACDU/Original/Vienamese/example_6-cut_seg1.wav"></audio>
+                </td>
+                <td data-label="Comp">
+                  <audio controls preload="none" src="data/ACDU/Original/Vienamese/example_6-cut_seg1.wav"></audio>
+                </td>
+                <td data-label="Ours">
+                  <audio controls preload="none" src="data/ACDU/Our/Vienamese/example_6-cut_seg1.wav"></audio>
+                </td>
+              </tr>
+              <tr>
+                <td class="transcript" data-label="Transcript">After one very famous speech at the Stanford University, Steve Jobs.</td>
+                <td class="accent" data-label="Accent">Vietnamese</td>
+                <td data-label="Original">
+                  <audio controls preload="none" src="data/ACDU/Original/Vienamese/example_6-cut_seg14.wav"></audio>
+                </td>
+                <td data-label="Comp">
+                  <audio controls preload="none" src="data/ACDU/Original/Vienamese/example_6-cut_seg14.wav"></audio>
+                </td>
+                <td data-label="Ours">
+                  <audio controls preload="none" src="data/ACDU/Our/Vienamese/example_6-cut_seg14.wav"></audio>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="competitor-block" id="cas">
+        <h3>CAS&nbsp;[3]</h3>
+
+        <div class="accent-block">
+          <h4>Chinese</h4>
+          <table>
+            <thead>
+              <tr>
+                <th>Transcript</th>
+                <th>Accent</th>
+                <th>Original</th>
+                <th>Comp</th>
+                <th>Ours</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="transcript" data-label="Transcript">Author of the danger trail Philip Steels etc.</td>
+                <td class="accent" data-label="Accent">Chinese</td>
+                <td data-label="Original">
+                  <audio controls preload="none" src="data/CAS/Original/Chinese/chinese_arctic_a0001.wav"></audio>
+                </td>
+                <td data-label="Comp">
+                  <audio controls preload="none" src="data/CAS/Original/Chinese/chinese_arctic_a0001.wav"></audio>
+                </td>
+                <td data-label="Ours">
+                  <audio controls preload="none" src="data/CAS/Our/Chinese/chinese_arctic_a0001.wav"></audio>
+                </td>
+              </tr>
+              <tr>
+                <td class="transcript" data-label="Transcript">I&#39;m playing a single hand in what looks like a losing game.</td>
+                <td class="accent" data-label="Accent">Chinese</td>
+                <td data-label="Original">
+                  <audio controls preload="none" src="data/CAS/Original/Chinese/chinese_arctic_a0010.wav"></audio>
+                </td>
+                <td data-label="Comp">
+                  <audio controls preload="none" src="data/CAS/Original/Chinese/chinese_arctic_a0010.wav"></audio>
+                </td>
+                <td data-label="Ours">
+                  <audio controls preload="none" src="data/CAS/Our/Chinese/chinese_arctic_a0010.wav"></audio>
+                </td>
+              </tr>
+              <tr>
+                <td class="transcript" data-label="Transcript">Now you&#39;re coming down to business Phil he exclaimed.</td>
+                <td class="accent" data-label="Accent">Chinese</td>
+                <td data-label="Original">
+                  <audio controls preload="none" src="data/CAS/Original/Chinese/chinese_arctic_a0014.wav"></audio>
+                </td>
+                <td data-label="Comp">
+                  <audio controls preload="none" src="data/CAS/Original/Chinese/chinese_arctic_a0014.wav"></audio>
+                </td>
+                <td data-label="Ours">
+                  <audio controls preload="none" src="data/CAS/Our/Chinese/chinese_arctic_a0014.wav"></audio>
+                </td>
+              </tr>
+              <tr>
+                <td class="transcript" data-label="Transcript">I suppose you wonder why she is coming up here.</td>
+                <td class="accent" data-label="Accent">Chinese</td>
+                <td data-label="Original">
+                  <audio controls preload="none" src="data/CAS/Original/Chinese/chinese_arctic_a0040.wav"></audio>
+                </td>
+                <td data-label="Comp">
+                  <audio controls preload="none" src="data/CAS/Original/Chinese/chinese_arctic_a0040.wav"></audio>
+                </td>
+                <td data-label="Ours">
+                  <audio controls preload="none" src="data/CAS/Our/Chinese/chinese_arctic_a0040.wav"></audio>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="accent-block">
+          <h4>Indian</h4>
+          <table>
+            <thead>
+              <tr>
+                <th>Transcript</th>
+                <th>Accent</th>
+                <th>Original</th>
+                <th>Comp</th>
+                <th>Ours</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="transcript" data-label="Transcript">There was nothing for us but the wide raw ocean.</td>
+                <td class="accent" data-label="Accent">Indian</td>
+                <td data-label="Original">
+                  <audio controls preload="none" src="data/CAS/Original/Indian/ASI_arctic_b0415.wav"></audio>
+                </td>
+                <td data-label="Comp">
+                  <audio controls preload="none" src="data/CAS/Original/Indian/ASI_arctic_b0415.wav"></audio>
+                </td>
+                <td data-label="Ours">
+                  <audio controls preload="none" src="data/CAS/Our/Indian/ASI_arctic_b0415.wav"></audio>
+                </td>
+              </tr>
+              <tr>
+                <td class="transcript" data-label="Transcript">He had become a man very early in life.</td>
+                <td class="accent" data-label="Accent">Indian</td>
+                <td data-label="Original">
+                  <audio controls preload="none" src="data/CAS/Original/Indian/RRBI_arctic_b0442.wav"></audio>
+                </td>
+                <td data-label="Comp">
+                  <audio controls preload="none" src="data/CAS/Original/Indian/RRBI_arctic_b0442.wav"></audio>
+                </td>
+                <td data-label="Ours">
+                  <audio controls preload="none" src="data/CAS/Our/Indian/RRBI_arctic_b0442.wav"></audio>
+                </td>
+              </tr>
+              <tr>
+                <td class="transcript" data-label="Transcript">He was manifestly distressed by my coming.</td>
+                <td class="accent" data-label="Accent">Indian</td>
+                <td data-label="Original">
+                  <audio controls preload="none" src="data/CAS/Original/Indian/SVBI_arctic_b0474.wav"></audio>
+                </td>
+                <td data-label="Comp">
+                  <audio controls preload="none" src="data/CAS/Original/Indian/SVBI_arctic_b0474.wav"></audio>
+                </td>
+                <td data-label="Ours">
+                  <audio controls preload="none" src="data/CAS/Our/Indian/SVBI_arctic_b0474.wav"></audio>
+                </td>
+              </tr>
+              <tr>
+                <td class="transcript" data-label="Transcript">Eighteen he added.</td>
+                <td class="accent" data-label="Accent">Indian</td>
+                <td data-label="Original">
+                  <audio controls preload="none" src="data/CAS/Original/Indian/TNI_arctic_b0454.wav"></audio>
+                </td>
+                <td data-label="Comp">
+                  <audio controls preload="none" src="data/CAS/Original/Indian/TNI_arctic_b0454.wav"></audio>
+                </td>
+                <td data-label="Ours">
+                  <audio controls preload="none" src="data/CAS/Our/Indian/TNI_arctic_b0454.wav"></audio>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="accent-block">
+          <h4>Korean</h4>
+          <table>
+            <thead>
+              <tr>
+                <th>Transcript</th>
+                <th>Accent</th>
+                <th>Original</th>
+                <th>Comp</th>
+                <th>Ours</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="transcript" data-label="Transcript">I was about to do this when cooler judgment prevailed.</td>
+                <td class="accent" data-label="Accent">Korean</td>
+                <td data-label="Original">
+                  <audio controls preload="none" src="data/CAS/Original/Korean/korean_arctic_a0025.wav"></audio>
+                </td>
+                <td data-label="Comp">
+                  <audio controls preload="none" src="data/CAS/Original/Korean/korean_arctic_a0025.wav"></audio>
+                </td>
+                <td data-label="Ours">
+                  <audio controls preload="none" src="data/CAS/Our/Korean/korean_arctic_a0025.wav"></audio>
+                </td>
+              </tr>
+              <tr>
+                <td class="transcript" data-label="Transcript">Their forces were already moving into the north country.</td>
+                <td class="accent" data-label="Accent">Korean</td>
+                <td data-label="Original">
+                  <audio controls preload="none" src="data/CAS/Original/Korean/korean_arctic_a0029.wav"></audio>
+                </td>
+                <td data-label="Comp">
+                  <audio controls preload="none" src="data/CAS/Original/Korean/korean_arctic_a0029.wav"></audio>
+                </td>
+                <td data-label="Ours">
+                  <audio controls preload="none" src="data/CAS/Our/Korean/korean_arctic_a0029.wav"></audio>
+                </td>
+              </tr>
+              <tr>
+                <td class="transcript" data-label="Transcript">I suppose you wonder why she is coming up here.</td>
+                <td class="accent" data-label="Accent">Korean</td>
+                <td data-label="Original">
+                  <audio controls preload="none" src="data/CAS/Original/Korean/korean_arctic_a0040.wav"></audio>
+                </td>
+                <td data-label="Comp">
+                  <audio controls preload="none" src="data/CAS/Original/Korean/korean_arctic_a0040.wav"></audio>
+                </td>
+                <td data-label="Ours">
+                  <audio controls preload="none" src="data/CAS/Our/Korean/korean_arctic_a0040.wav"></audio>
+                </td>
+              </tr>
+              <tr>
+                <td class="transcript" data-label="Transcript">And now down there Eileen was waiting for him.</td>
+                <td class="accent" data-label="Accent">Korean</td>
+                <td data-label="Original">
+                  <audio controls preload="none" src="data/CAS/Original/Korean/korean_arctic_a0074.wav"></audio>
+                </td>
+                <td data-label="Comp">
+                  <audio controls preload="none" src="data/CAS/Original/Korean/korean_arctic_a0074.wav"></audio>
+                </td>
+                <td data-label="Ours">
+                  <audio controls preload="none" src="data/CAS/Our/Korean/korean_arctic_a0074.wav"></audio>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="competitor-block" id="ipac">
+        <h3>IPAC&nbsp;[1]</h3>
+
+        <div class="accent-block">
+          <h4>Arabic</h4>
+          <table>
+            <thead>
+              <tr>
+                <th>Transcript</th>
+                <th>Accent</th>
+                <th>Original</th>
+                <th>Comp</th>
+                <th>Ours</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="transcript" data-label="Transcript">Philip bent lower and stared into the face of the dead man.</td>
+                <td class="accent" data-label="Accent">Arabic</td>
+                <td data-label="Original">
+                  <audio controls preload="none" src="data/IPAC/Original/Arabic/a0087.wav"></audio>
+                </td>
+                <td data-label="Comp">
+                  <audio controls preload="none" src="data/IPAC/Original/Arabic/a0087.wav"></audio>
+                </td>
+                <td data-label="Ours">
+                  <audio controls preload="none" src="data/IPAC/Our/Arabic/a0087.wav"></audio>
+                </td>
+              </tr>
+              <tr>
+                <td class="transcript" data-label="Transcript">For a few moments he ate in silence.</td>
+                <td class="accent" data-label="Accent">Arabic</td>
+                <td data-label="Original">
+                  <audio controls preload="none" src="data/IPAC/Original/Arabic/b0044.wav"></audio>
+                </td>
+                <td data-label="Comp">
+                  <audio controls preload="none" src="data/IPAC/Original/Arabic/b0044.wav"></audio>
+                </td>
+                <td data-label="Ours">
+                  <audio controls preload="none" src="data/IPAC/Our/Arabic/b0044.wav"></audio>
+                </td>
+              </tr>
+              <tr>
+                <td class="transcript" data-label="Transcript">Again the girls applauded and Missus Hall cried.</td>
+                <td class="accent" data-label="Accent">Arabic</td>
+                <td data-label="Original">
+                  <audio controls preload="none" src="data/IPAC/Original/Arabic/b0280.wav"></audio>
+                </td>
+                <td data-label="Comp">
+                  <audio controls preload="none" src="data/IPAC/Original/Arabic/b0280.wav"></audio>
+                </td>
+                <td data-label="Ours">
+                  <audio controls preload="none" src="data/IPAC/Our/Arabic/b0280.wav"></audio>
+                </td>
+              </tr>
+              <tr>
+                <td class="transcript" data-label="Transcript">I&#39;ll tell you the librarian said with a brightening face.</td>
+                <td class="accent" data-label="Accent">Arabic</td>
+                <td data-label="Original">
+                  <audio controls preload="none" src="data/IPAC/Original/Arabic/b0534.wav"></audio>
+                </td>
+                <td data-label="Comp">
+                  <audio controls preload="none" src="data/IPAC/Original/Arabic/b0534.wav"></audio>
+                </td>
+                <td data-label="Ours">
+                  <audio controls preload="none" src="data/IPAC/Our/Arabic/b0534.wav"></audio>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="accent-block">
+          <h4>Chinese</h4>
+          <table>
+            <thead>
+              <tr>
+                <th>Transcript</th>
+                <th>Accent</th>
+                <th>Original</th>
+                <th>Comp</th>
+                <th>Ours</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="transcript" data-label="Transcript">If I ever needed a fighter in my life I need one now.</td>
+                <td class="accent" data-label="Accent">Chinese</td>
+                <td data-label="Original">
+                  <audio controls preload="none" src="data/IPAC/Original/Chinese/a0011.wav"></audio>
+                </td>
+                <td data-label="Comp">
+                  <audio controls preload="none" src="data/IPAC/Original/Chinese/a0011.wav"></audio>
+                </td>
+                <td data-label="Ours">
+                  <audio controls preload="none" src="data/IPAC/Our/Chinese/a0011.wav"></audio>
+                </td>
+              </tr>
+              <tr>
+                <td class="transcript" data-label="Transcript">It fairly clubbed me into recognizing it.</td>
+                <td class="accent" data-label="Accent">Chinese</td>
+                <td data-label="Original">
+                  <audio controls preload="none" src="data/IPAC/Original/Chinese/a0021.wav"></audio>
+                </td>
+                <td data-label="Comp">
+                  <audio controls preload="none" src="data/IPAC/Original/Chinese/a0021.wav"></audio>
+                </td>
+                <td data-label="Ours">
+                  <audio controls preload="none" src="data/IPAC/Our/Chinese/a0021.wav"></audio>
+                </td>
+              </tr>
+              <tr>
+                <td class="transcript" data-label="Transcript">To my surprise he began to show actual enthusiasm in my favor.</td>
+                <td class="accent" data-label="Accent">Chinese</td>
+                <td data-label="Original">
+                  <audio controls preload="none" src="data/IPAC/Original/Chinese/a0027.wav"></audio>
+                </td>
+                <td data-label="Comp">
+                  <audio controls preload="none" src="data/IPAC/Original/Chinese/a0027.wav"></audio>
+                </td>
+                <td data-label="Ours">
+                  <audio controls preload="none" src="data/IPAC/Our/Chinese/a0027.wav"></audio>
+                </td>
+              </tr>
+              <tr>
+                <td class="transcript" data-label="Transcript">Since then some mysterious force has been fighting us at every step.</td>
+                <td class="accent" data-label="Accent">Chinese</td>
+                <td data-label="Original">
+                  <audio controls preload="none" src="data/IPAC/Original/Chinese/a0032.wav"></audio>
+                </td>
+                <td data-label="Comp">
+                  <audio controls preload="none" src="data/IPAC/Original/Chinese/a0032.wav"></audio>
+                </td>
+                <td data-label="Ours">
+                  <audio controls preload="none" src="data/IPAC/Our/Chinese/a0032.wav"></audio>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="accent-block">
+          <h4>Indian</h4>
+          <table>
+            <thead>
+              <tr>
+                <th>Transcript</th>
+                <th>Accent</th>
+                <th>Original</th>
+                <th>Comp</th>
+                <th>Ours</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="transcript" data-label="Transcript">Gregson shoved back his chair and rose to his feet.</td>
+                <td class="accent" data-label="Accent">Indian</td>
+                <td data-label="Original">
+                  <audio controls preload="none" src="data/IPAC/Original/Indian/arctic_a0012.wav"></audio>
+                </td>
+                <td data-label="Comp">
+                  <audio controls preload="none" src="data/IPAC/Original/Indian/arctic_a0012.wav"></audio>
+                </td>
+                <td data-label="Ours">
+                  <audio controls preload="none" src="data/IPAC/Our/Indian/arctic_a0012.wav"></audio>
+                </td>
+              </tr>
+              <tr>
+                <td class="transcript" data-label="Transcript">A combination of Canadian capital quickly organized and petitioned for the same privileges.</td>
+                <td class="accent" data-label="Accent">Indian</td>
+                <td data-label="Original">
+                  <audio controls preload="none" src="data/IPAC/Original/Indian/arctic_a0023.wav"></audio>
+                </td>
+                <td data-label="Comp">
+                  <audio controls preload="none" src="data/IPAC/Original/Indian/arctic_a0023.wav"></audio>
+                </td>
+                <td data-label="Ours">
+                  <audio controls preload="none" src="data/IPAC/Our/Indian/arctic_a0023.wav"></audio>
+                </td>
+              </tr>
+              <tr>
+                <td class="transcript" data-label="Transcript">Whitefish Gregson whitefish and trout.</td>
+                <td class="accent" data-label="Accent">Indian</td>
+                <td data-label="Original">
+                  <audio controls preload="none" src="data/IPAC/Original/Indian/arctic_b0014.wav"></audio>
+                </td>
+                <td data-label="Comp">
+                  <audio controls preload="none" src="data/IPAC/Original/Indian/arctic_b0014.wav"></audio>
+                </td>
+                <td data-label="Ours">
+                  <audio controls preload="none" src="data/IPAC/Our/Indian/arctic_b0014.wav"></audio>
+                </td>
+              </tr>
+              <tr>
+                <td class="transcript" data-label="Transcript">A month in Australia would finish me.</td>
+                <td class="accent" data-label="Accent">Indian</td>
+                <td data-label="Original">
+                  <audio controls preload="none" src="data/IPAC/Original/Indian/arctic_b0203.wav"></audio>
+                </td>
+                <td data-label="Comp">
+                  <audio controls preload="none" src="data/IPAC/Original/Indian/arctic_b0203.wav"></audio>
+                </td>
+                <td data-label="Ours">
+                  <audio controls preload="none" src="data/IPAC/Our/Indian/arctic_b0203.wav"></audio>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="accent-block">
+          <h4>Korean</h4>
+          <table>
+            <thead>
+              <tr>
+                <th>Transcript</th>
+                <th>Accent</th>
+                <th>Original</th>
+                <th>Comp</th>
+                <th>Ours</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="transcript" data-label="Transcript">Philip bent lower and stared into the face of the dead man.</td>
+                <td class="accent" data-label="Accent">Korean</td>
+                <td data-label="Original">
+                  <audio controls preload="none" src="data/IPAC/Original/Korean/a0087.wav"></audio>
+                </td>
+                <td data-label="Comp">
+                  <audio controls preload="none" src="data/IPAC/Original/Korean/a0087.wav"></audio>
+                </td>
+                <td data-label="Ours">
+                  <audio controls preload="none" src="data/IPAC/Our/Korean/a0087.wav"></audio>
+                </td>
+              </tr>
+              <tr>
+                <td class="transcript" data-label="Transcript">For a few moments he ate in silence.</td>
+                <td class="accent" data-label="Accent">Korean</td>
+                <td data-label="Original">
+                  <audio controls preload="none" src="data/IPAC/Original/Korean/b0044.wav"></audio>
+                </td>
+                <td data-label="Comp">
+                  <audio controls preload="none" src="data/IPAC/Original/Korean/b0044.wav"></audio>
+                </td>
+                <td data-label="Ours">
+                  <audio controls preload="none" src="data/IPAC/Our/Korean/b0044.wav"></audio>
+                </td>
+              </tr>
+              <tr>
+                <td class="transcript" data-label="Transcript">Again the girls applauded and Missus Hall cried.</td>
+                <td class="accent" data-label="Accent">Korean</td>
+                <td data-label="Original">
+                  <audio controls preload="none" src="data/IPAC/Original/Korean/b0280.wav"></audio>
+                </td>
+                <td data-label="Comp">
+                  <audio controls preload="none" src="data/IPAC/Original/Korean/b0280.wav"></audio>
+                </td>
+                <td data-label="Ours">
+                  <audio controls preload="none" src="data/IPAC/Our/Korean/b0280.wav"></audio>
+                </td>
+              </tr>
+              <tr>
+                <td class="transcript" data-label="Transcript">I&#39;ll tell you the librarian said with a brightening face.</td>
+                <td class="accent" data-label="Accent">Korean</td>
+                <td data-label="Original">
+                  <audio controls preload="none" src="data/IPAC/Original/Korean/b0534.wav"></audio>
+                </td>
+                <td data-label="Comp">
+                  <audio controls preload="none" src="data/IPAC/Original/Korean/b0534.wav"></audio>
+                </td>
+                <td data-label="Ours">
+                  <audio controls preload="none" src="data/IPAC/Our/Korean/b0534.wav"></audio>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="accent-block">
+          <h4>Vietnamese</h4>
+          <table>
+            <thead>
+              <tr>
+                <th>Transcript</th>
+                <th>Accent</th>
+                <th>Original</th>
+                <th>Comp</th>
+                <th>Ours</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="transcript" data-label="Transcript">A combination of Canadian capital quickly organized and petitioned for the same privileges.</td>
+                <td class="accent" data-label="Accent">Vietnamese</td>
+                <td data-label="Original">
+                  <audio controls preload="none" src="data/IPAC/Original/Vietnamese/a0023.wav"></audio>
+                </td>
+                <td data-label="Comp">
+                  <audio controls preload="none" src="data/IPAC/Original/Vietnamese/a0023.wav"></audio>
+                </td>
+                <td data-label="Ours">
+                  <audio controls preload="none" src="data/IPAC/Our/Vienamese/a0023.wav"></audio>
+                </td>
+              </tr>
+              <tr>
+                <td class="transcript" data-label="Transcript">The promoter&#39;s eyes were heavy with little puffy bags under them.</td>
+                <td class="accent" data-label="Accent">Vietnamese</td>
+                <td data-label="Original">
+                  <audio controls preload="none" src="data/IPAC/Original/Vietnamese/a0073.wav"></audio>
+                </td>
+                <td data-label="Comp">
+                  <audio controls preload="none" src="data/IPAC/Original/Vietnamese/a0073.wav"></audio>
+                </td>
+                <td data-label="Ours">
+                  <audio controls preload="none" src="data/IPAC/Our/Vienamese/a0073.wav"></audio>
+                </td>
+              </tr>
+              <tr>
+                <td class="transcript" data-label="Transcript">The temperature dropped to fifty below zero and remained there the whole trip.</td>
+                <td class="accent" data-label="Accent">Vietnamese</td>
+                <td data-label="Original">
+                  <audio controls preload="none" src="data/IPAC/Original/Vietnamese/b0358.wav"></audio>
+                </td>
+                <td data-label="Comp">
+                  <audio controls preload="none" src="data/IPAC/Original/Vietnamese/b0358.wav"></audio>
+                </td>
+                <td data-label="Ours">
+                  <audio controls preload="none" src="data/IPAC/Our/Vienamese/b0358.wav"></audio>
+                </td>
+              </tr>
+              <tr>
+                <td class="transcript" data-label="Transcript">To my dearest and always appreciated friend I submit myself.</td>
+                <td class="accent" data-label="Accent">Vietnamese</td>
+                <td data-label="Original">
+                  <audio controls preload="none" src="data/IPAC/Original/Vietnamese/b0450.wav"></audio>
+                </td>
+                <td data-label="Comp">
+                  <audio controls preload="none" src="data/IPAC/Original/Vietnamese/b0450.wav"></audio>
+                </td>
+                <td data-label="Ours">
+                  <audio controls preload="none" src="data/IPAC/Our/Vienamese/b0450.wav"></audio>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
     <footer>
-      <div>Authors: Yurii Halychanskyi, Cameron Churchwell, Yutong Wen, Volodymyr Kindratenko</div>
-      <div>University of Illinois Urbana-Champaign</div>
-      <div>Contact: <a href="mailto:yuriih2@illinois.edu">yuriih2@illinois.edu</a></div>
+      <h2>References</h2>
+      <ol>
+        <li>Y. Fang, X. Li, J. Yi, et al. <em>Improving Pronunciation and Accent Conversion through Knowledge Distillation and Synthetic Groundtruth from Native TTS.</em></li>
+        <li>Y. Chen, X. Wang, H. Lee, <em>Accent Conversion Using Discrete Units with Parallel Data Synthesized from Controllable Accented TTS.</em></li>
+        <li>J. Kim, S. Lee, M. Hahn, <em>Convert and Speak: Zero-shot Accent Conversion with Minimum Supervision.</em></li>
+      </ol>
     </footer>
   </div>
 </body>
