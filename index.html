@@ -7,23 +7,12 @@
   <meta name="robots" content="noindex">
   <style>
     :root {
-      color-scheme: light dark;
       --bg: #ffffff;
       --fg: #111111;
       --muted: #4b5563;
       --accent: #0b66c2;
       --border: #e5e7eb;
-      --surface: #f9fafb;
-    }
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #111827;
-        --fg: #e5e7eb;
-        --muted: #9ca3af;
-        --accent: #60a5fa;
-        --border: #1f2937;
-        --surface: #18212f;
-      }
+      --surface: #f5f7fb;
     }
     * { box-sizing: border-box; }
     body {
@@ -178,7 +167,7 @@
     <section>
       <h2>Competitor Comparison</h2>
       <p class="competitor-intro">
-        Head-to-head comparison with prior systems. Audios from each competitor section are drawn from the test subsets described in the paper. Each metric column contains two subcolumns: Comp (competitor) and Ours, evaluated on the same subset with our pipeline using <code>t_start=100</code>. Competitor abbreviations: IPAC&nbsp;[1], ACDU&nbsp;[2], CAS&nbsp;[3].
+        Head-to-head comparison with prior systems, using the test subsets described in the paper. Our model is evaluated with <code>t_start=100</code>. Competitor abbreviations: IPAC&nbsp;[1], ACDU&nbsp;[2], CAS&nbsp;[3].
       </p>
       <p class="competitor-intro">
         Reference originals are mirrored from the released competitor packages where provided; some references will be refreshed once canonical recordings are cleared for release.
@@ -207,7 +196,7 @@
                   <audio controls preload="none" src="data/ACDU/Original/Chinese/Ceo_Zoom_full-cut_seg3.wav"></audio>
                 </td>
                 <td data-label="Comp">
-                  <audio controls preload="none" src="data/ACDU/Original/Chinese/Ceo_Zoom_full-cut_seg3.wav"></audio>
+                  <audio controls preload="none" src="data/ACDU/Comp/Chinese/Ceo_Zoom_full-cut_seg3.wav"></audio>
                 </td>
                 <td data-label="Ours">
                   <audio controls preload="none" src="data/ACDU/Our/Chinese/Ceo_Zoom_full-cut_seg3.wav"></audio>
@@ -220,7 +209,7 @@
                   <audio controls preload="none" src="data/ACDU/Original/Chinese/Ceo_Zoom_full-cut_seg8.wav"></audio>
                 </td>
                 <td data-label="Comp">
-                  <audio controls preload="none" src="data/ACDU/Original/Chinese/Ceo_Zoom_full-cut_seg8.wav"></audio>
+                  <audio controls preload="none" src="data/ACDU/Comp/Chinese/Ceo_Zoom_full-cut_seg8.wav"></audio>
                 </td>
                 <td data-label="Ours">
                   <audio controls preload="none" src="data/ACDU/Our/Chinese/Ceo_Zoom_full-cut_seg8.wav"></audio>
@@ -233,7 +222,7 @@
                   <audio controls preload="none" src="data/ACDU/Original/Chinese/example_1-cut_seg2.wav"></audio>
                 </td>
                 <td data-label="Comp">
-                  <audio controls preload="none" src="data/ACDU/Original/Chinese/example_1-cut_seg2.wav"></audio>
+                  <audio controls preload="none" src="data/ACDU/Comp/Chinese/example_1-cut_seg2.wav"></audio>
                 </td>
                 <td data-label="Ours">
                   <audio controls preload="none" src="data/ACDU/Our/Chinese/example_1-cut_seg2.wav"></audio>
@@ -246,7 +235,7 @@
                   <audio controls preload="none" src="data/ACDU/Original/Chinese/example_4-cut_seg15.wav"></audio>
                 </td>
                 <td data-label="Comp">
-                  <audio controls preload="none" src="data/ACDU/Original/Chinese/example_4-cut_seg15.wav"></audio>
+                  <audio controls preload="none" src="data/ACDU/Comp/Chinese/example_4-cut_seg15.wav"></audio>
                 </td>
                 <td data-label="Ours">
                   <audio controls preload="none" src="data/ACDU/Our/Chinese/example_4-cut_seg15.wav"></audio>
@@ -257,7 +246,7 @@
         </div>
 
         <div class="accent-block">
-          <h4>Indian</h4>
+          <h4>Hindi</h4>
           <table>
             <thead>
               <tr>
@@ -271,12 +260,12 @@
             <tbody>
               <tr>
                 <td class="transcript" data-label="Transcript">To the world, to the neighboring kingdoms. So who was showcasing culture? Artists were showcasing culture, dancers, musicians.</td>
-                <td class="accent" data-label="Accent">Indian</td>
+                <td class="accent" data-label="Accent">Hindi</td>
                 <td data-label="Original">
                   <audio controls preload="none" src="data/ACDU/Original/Indian/example_3-cut_seg1.wav"></audio>
                 </td>
                 <td data-label="Comp">
-                  <audio controls preload="none" src="data/ACDU/Original/Indian/example_3-cut_seg1.wav"></audio>
+                  <audio controls preload="none" src="data/ACDU/Comp/Indian/example_3-cut_seg1.wav"></audio>
                 </td>
                 <td data-label="Ours">
                   <audio controls preload="none" src="data/ACDU/Our/Indian/example_3-cut_seg1.wav"></audio>
@@ -284,12 +273,12 @@
               </tr>
               <tr>
                 <td class="transcript" data-label="Transcript">Democracy. I&#39;m sure life is better, but not so good for the artists at that point. Because all of you guys weren&#39;t paying money to the artists.</td>
-                <td class="accent" data-label="Accent">Indian</td>
+                <td class="accent" data-label="Accent">Hindi</td>
                 <td data-label="Original">
                   <audio controls preload="none" src="data/ACDU/Original/Indian/example_3-cut_seg3.wav"></audio>
                 </td>
                 <td data-label="Comp">
-                  <audio controls preload="none" src="data/ACDU/Original/Indian/example_3-cut_seg3.wav"></audio>
+                  <audio controls preload="none" src="data/ACDU/Comp/Indian/example_3-cut_seg3.wav"></audio>
                 </td>
                 <td data-label="Ours">
                   <audio controls preload="none" src="data/ACDU/Our/Indian/example_3-cut_seg3.wav"></audio>
@@ -297,12 +286,12 @@
               </tr>
               <tr>
                 <td class="transcript" data-label="Transcript">TV news. The media holds a mirror up to society, but who will hold a mirror up to the media?</td>
-                <td class="accent" data-label="Accent">Indian</td>
+                <td class="accent" data-label="Accent">Hindi</td>
                 <td data-label="Original">
                   <audio controls preload="none" src="data/ACDU/Original/Indian/indian_news_1-cut_seg1.wav"></audio>
                 </td>
                 <td data-label="Comp">
-                  <audio controls preload="none" src="data/ACDU/Original/Indian/indian_news_1-cut_seg1.wav"></audio>
+                  <audio controls preload="none" src="data/ACDU/Comp/Indian/indian_news_1-cut_seg1.wav"></audio>
                 </td>
                 <td data-label="Ours">
                   <audio controls preload="none" src="data/ACDU/Our/Indian/indian_news_1-cut_seg1.wav"></audio>
@@ -310,12 +299,12 @@
               </tr>
               <tr>
                 <td class="transcript" data-label="Transcript">But my roots go back to a small village in, called Edoor in Iritty, Kerala. Though I was raised, schooled.</td>
-                <td class="accent" data-label="Accent">Indian</td>
+                <td class="accent" data-label="Accent">Hindi</td>
                 <td data-label="Original">
                   <audio controls preload="none" src="data/ACDU/Original/Indian/indian_news_3-cut_seg6.wav"></audio>
                 </td>
                 <td data-label="Comp">
-                  <audio controls preload="none" src="data/ACDU/Original/Indian/indian_news_3-cut_seg6.wav"></audio>
+                  <audio controls preload="none" src="data/ACDU/Comp/Indian/indian_news_3-cut_seg6.wav"></audio>
                 </td>
                 <td data-label="Ours">
                   <audio controls preload="none" src="data/ACDU/Our/Indian/indian_news_3-cut_seg6.wav"></audio>
@@ -345,7 +334,7 @@
                   <audio controls preload="none" src="data/ACDU/Original/Vienamese/example_4-cut%20(1)_seg3.wav"></audio>
                 </td>
                 <td data-label="Comp">
-                  <audio controls preload="none" src="data/ACDU/Original/Vienamese/example_4-cut%20(1)_seg3.wav"></audio>
+                  <audio controls preload="none" src="data/ACDU/Comp/Vienamese/example_4-cut%20(1)_seg3.wav"></audio>
                 </td>
                 <td data-label="Ours">
                   <audio controls preload="none" src="data/ACDU/Our/Vienamese/example_4-cut%20(1)_seg3.wav"></audio>
@@ -358,7 +347,7 @@
                   <audio controls preload="none" src="data/ACDU/Original/Vienamese/example_4-cut%20(1)_seg10.wav"></audio>
                 </td>
                 <td data-label="Comp">
-                  <audio controls preload="none" src="data/ACDU/Original/Vienamese/example_4-cut%20(1)_seg10.wav"></audio>
+                  <audio controls preload="none" src="data/ACDU/Comp/Vienamese/example_4-cut%20(1)_seg10.wav"></audio>
                 </td>
                 <td data-label="Ours">
                   <audio controls preload="none" src="data/ACDU/Our/Vienamese/example_4-cut%20(1)_seg10.wav"></audio>
@@ -371,7 +360,7 @@
                   <audio controls preload="none" src="data/ACDU/Original/Vienamese/example_6-cut_seg1.wav"></audio>
                 </td>
                 <td data-label="Comp">
-                  <audio controls preload="none" src="data/ACDU/Original/Vienamese/example_6-cut_seg1.wav"></audio>
+                  <audio controls preload="none" src="data/ACDU/Comp/Vienamese/example_6-cut_seg1.wav"></audio>
                 </td>
                 <td data-label="Ours">
                   <audio controls preload="none" src="data/ACDU/Our/Vienamese/example_6-cut_seg1.wav"></audio>
@@ -384,7 +373,7 @@
                   <audio controls preload="none" src="data/ACDU/Original/Vienamese/example_6-cut_seg14.wav"></audio>
                 </td>
                 <td data-label="Comp">
-                  <audio controls preload="none" src="data/ACDU/Original/Vienamese/example_6-cut_seg14.wav"></audio>
+                  <audio controls preload="none" src="data/ACDU/Comp/Vienamese/example_6-cut_seg14.wav"></audio>
                 </td>
                 <td data-label="Ours">
                   <audio controls preload="none" src="data/ACDU/Our/Vienamese/example_6-cut_seg14.wav"></audio>
@@ -418,7 +407,7 @@
                   <audio controls preload="none" src="data/CAS/Original/Chinese/chinese_arctic_a0001.wav"></audio>
                 </td>
                 <td data-label="Comp">
-                  <audio controls preload="none" src="data/CAS/Original/Chinese/chinese_arctic_a0001.wav"></audio>
+                  <audio controls preload="none" src="data/CAS/Comp/Chinese/chinese_arctic_a0001.wav"></audio>
                 </td>
                 <td data-label="Ours">
                   <audio controls preload="none" src="data/CAS/Our/Chinese/chinese_arctic_a0001.wav"></audio>
@@ -431,7 +420,7 @@
                   <audio controls preload="none" src="data/CAS/Original/Chinese/chinese_arctic_a0010.wav"></audio>
                 </td>
                 <td data-label="Comp">
-                  <audio controls preload="none" src="data/CAS/Original/Chinese/chinese_arctic_a0010.wav"></audio>
+                  <audio controls preload="none" src="data/CAS/Comp/Chinese/chinese_arctic_a0010.wav"></audio>
                 </td>
                 <td data-label="Ours">
                   <audio controls preload="none" src="data/CAS/Our/Chinese/chinese_arctic_a0010.wav"></audio>
@@ -444,7 +433,7 @@
                   <audio controls preload="none" src="data/CAS/Original/Chinese/chinese_arctic_a0014.wav"></audio>
                 </td>
                 <td data-label="Comp">
-                  <audio controls preload="none" src="data/CAS/Original/Chinese/chinese_arctic_a0014.wav"></audio>
+                  <audio controls preload="none" src="data/CAS/Comp/Chinese/chinese_arctic_a0014.wav"></audio>
                 </td>
                 <td data-label="Ours">
                   <audio controls preload="none" src="data/CAS/Our/Chinese/chinese_arctic_a0014.wav"></audio>
@@ -457,7 +446,7 @@
                   <audio controls preload="none" src="data/CAS/Original/Chinese/chinese_arctic_a0040.wav"></audio>
                 </td>
                 <td data-label="Comp">
-                  <audio controls preload="none" src="data/CAS/Original/Chinese/chinese_arctic_a0040.wav"></audio>
+                  <audio controls preload="none" src="data/CAS/Comp/Chinese/chinese_arctic_a0040.wav"></audio>
                 </td>
                 <td data-label="Ours">
                   <audio controls preload="none" src="data/CAS/Our/Chinese/chinese_arctic_a0040.wav"></audio>
@@ -468,7 +457,7 @@
         </div>
 
         <div class="accent-block">
-          <h4>Indian</h4>
+          <h4>Hindi</h4>
           <table>
             <thead>
               <tr>
@@ -482,12 +471,12 @@
             <tbody>
               <tr>
                 <td class="transcript" data-label="Transcript">There was nothing for us but the wide raw ocean.</td>
-                <td class="accent" data-label="Accent">Indian</td>
+                <td class="accent" data-label="Accent">Hindi</td>
                 <td data-label="Original">
                   <audio controls preload="none" src="data/CAS/Original/Indian/ASI_arctic_b0415.wav"></audio>
                 </td>
                 <td data-label="Comp">
-                  <audio controls preload="none" src="data/CAS/Original/Indian/ASI_arctic_b0415.wav"></audio>
+                  <audio controls preload="none" src="data/CAS/Comp/Indian/ASI_arctic_b0415.wav"></audio>
                 </td>
                 <td data-label="Ours">
                   <audio controls preload="none" src="data/CAS/Our/Indian/ASI_arctic_b0415.wav"></audio>
@@ -495,12 +484,12 @@
               </tr>
               <tr>
                 <td class="transcript" data-label="Transcript">He had become a man very early in life.</td>
-                <td class="accent" data-label="Accent">Indian</td>
+                <td class="accent" data-label="Accent">Hindi</td>
                 <td data-label="Original">
                   <audio controls preload="none" src="data/CAS/Original/Indian/RRBI_arctic_b0442.wav"></audio>
                 </td>
                 <td data-label="Comp">
-                  <audio controls preload="none" src="data/CAS/Original/Indian/RRBI_arctic_b0442.wav"></audio>
+                  <audio controls preload="none" src="data/CAS/Comp/Indian/RRBI_arctic_b0442.wav"></audio>
                 </td>
                 <td data-label="Ours">
                   <audio controls preload="none" src="data/CAS/Our/Indian/RRBI_arctic_b0442.wav"></audio>
@@ -508,12 +497,12 @@
               </tr>
               <tr>
                 <td class="transcript" data-label="Transcript">He was manifestly distressed by my coming.</td>
-                <td class="accent" data-label="Accent">Indian</td>
+                <td class="accent" data-label="Accent">Hindi</td>
                 <td data-label="Original">
                   <audio controls preload="none" src="data/CAS/Original/Indian/SVBI_arctic_b0474.wav"></audio>
                 </td>
                 <td data-label="Comp">
-                  <audio controls preload="none" src="data/CAS/Original/Indian/SVBI_arctic_b0474.wav"></audio>
+                  <audio controls preload="none" src="data/CAS/Comp/Indian/SVBI_arctic_b0474.wav"></audio>
                 </td>
                 <td data-label="Ours">
                   <audio controls preload="none" src="data/CAS/Our/Indian/SVBI_arctic_b0474.wav"></audio>
@@ -521,12 +510,12 @@
               </tr>
               <tr>
                 <td class="transcript" data-label="Transcript">Eighteen he added.</td>
-                <td class="accent" data-label="Accent">Indian</td>
+                <td class="accent" data-label="Accent">Hindi</td>
                 <td data-label="Original">
                   <audio controls preload="none" src="data/CAS/Original/Indian/TNI_arctic_b0454.wav"></audio>
                 </td>
                 <td data-label="Comp">
-                  <audio controls preload="none" src="data/CAS/Original/Indian/TNI_arctic_b0454.wav"></audio>
+                  <audio controls preload="none" src="data/CAS/Comp/Indian/TNI_arctic_b0454.wav"></audio>
                 </td>
                 <td data-label="Ours">
                   <audio controls preload="none" src="data/CAS/Our/Indian/TNI_arctic_b0454.wav"></audio>
@@ -556,7 +545,7 @@
                   <audio controls preload="none" src="data/CAS/Original/Korean/korean_arctic_a0025.wav"></audio>
                 </td>
                 <td data-label="Comp">
-                  <audio controls preload="none" src="data/CAS/Original/Korean/korean_arctic_a0025.wav"></audio>
+                  <audio controls preload="none" src="data/CAS/Comp/Korean/korean_arctic_a0025.wav"></audio>
                 </td>
                 <td data-label="Ours">
                   <audio controls preload="none" src="data/CAS/Our/Korean/korean_arctic_a0025.wav"></audio>
@@ -569,7 +558,7 @@
                   <audio controls preload="none" src="data/CAS/Original/Korean/korean_arctic_a0029.wav"></audio>
                 </td>
                 <td data-label="Comp">
-                  <audio controls preload="none" src="data/CAS/Original/Korean/korean_arctic_a0029.wav"></audio>
+                  <audio controls preload="none" src="data/CAS/Comp/Korean/korean_arctic_a0029.wav"></audio>
                 </td>
                 <td data-label="Ours">
                   <audio controls preload="none" src="data/CAS/Our/Korean/korean_arctic_a0029.wav"></audio>
@@ -582,7 +571,7 @@
                   <audio controls preload="none" src="data/CAS/Original/Korean/korean_arctic_a0040.wav"></audio>
                 </td>
                 <td data-label="Comp">
-                  <audio controls preload="none" src="data/CAS/Original/Korean/korean_arctic_a0040.wav"></audio>
+                  <audio controls preload="none" src="data/CAS/Comp/Korean/korean_arctic_a0040.wav"></audio>
                 </td>
                 <td data-label="Ours">
                   <audio controls preload="none" src="data/CAS/Our/Korean/korean_arctic_a0040.wav"></audio>
@@ -595,7 +584,7 @@
                   <audio controls preload="none" src="data/CAS/Original/Korean/korean_arctic_a0074.wav"></audio>
                 </td>
                 <td data-label="Comp">
-                  <audio controls preload="none" src="data/CAS/Original/Korean/korean_arctic_a0074.wav"></audio>
+                  <audio controls preload="none" src="data/CAS/Comp/Korean/korean_arctic_a0074.wav"></audio>
                 </td>
                 <td data-label="Ours">
                   <audio controls preload="none" src="data/CAS/Our/Korean/korean_arctic_a0074.wav"></audio>
@@ -629,7 +618,7 @@
                   <audio controls preload="none" src="data/IPAC/Original/Arabic/a0087.wav"></audio>
                 </td>
                 <td data-label="Comp">
-                  <audio controls preload="none" src="data/IPAC/Original/Arabic/a0087.wav"></audio>
+                  <audio controls preload="none" src="data/IPAC/Comp/Arabic/a0087.wav"></audio>
                 </td>
                 <td data-label="Ours">
                   <audio controls preload="none" src="data/IPAC/Our/Arabic/a0087.wav"></audio>
@@ -642,7 +631,7 @@
                   <audio controls preload="none" src="data/IPAC/Original/Arabic/b0044.wav"></audio>
                 </td>
                 <td data-label="Comp">
-                  <audio controls preload="none" src="data/IPAC/Original/Arabic/b0044.wav"></audio>
+                  <audio controls preload="none" src="data/IPAC/Comp/Arabic/b0044.wav"></audio>
                 </td>
                 <td data-label="Ours">
                   <audio controls preload="none" src="data/IPAC/Our/Arabic/b0044.wav"></audio>
@@ -655,7 +644,7 @@
                   <audio controls preload="none" src="data/IPAC/Original/Arabic/b0280.wav"></audio>
                 </td>
                 <td data-label="Comp">
-                  <audio controls preload="none" src="data/IPAC/Original/Arabic/b0280.wav"></audio>
+                  <audio controls preload="none" src="data/IPAC/Comp/Arabic/b0280.wav"></audio>
                 </td>
                 <td data-label="Ours">
                   <audio controls preload="none" src="data/IPAC/Our/Arabic/b0280.wav"></audio>
@@ -668,7 +657,7 @@
                   <audio controls preload="none" src="data/IPAC/Original/Arabic/b0534.wav"></audio>
                 </td>
                 <td data-label="Comp">
-                  <audio controls preload="none" src="data/IPAC/Original/Arabic/b0534.wav"></audio>
+                  <audio controls preload="none" src="data/IPAC/Comp/Arabic/b0534.wav"></audio>
                 </td>
                 <td data-label="Ours">
                   <audio controls preload="none" src="data/IPAC/Our/Arabic/b0534.wav"></audio>
@@ -698,7 +687,7 @@
                   <audio controls preload="none" src="data/IPAC/Original/Chinese/a0011.wav"></audio>
                 </td>
                 <td data-label="Comp">
-                  <audio controls preload="none" src="data/IPAC/Original/Chinese/a0011.wav"></audio>
+                  <audio controls preload="none" src="data/IPAC/Comp/Chinese/a0011.wav"></audio>
                 </td>
                 <td data-label="Ours">
                   <audio controls preload="none" src="data/IPAC/Our/Chinese/a0011.wav"></audio>
@@ -711,7 +700,7 @@
                   <audio controls preload="none" src="data/IPAC/Original/Chinese/a0021.wav"></audio>
                 </td>
                 <td data-label="Comp">
-                  <audio controls preload="none" src="data/IPAC/Original/Chinese/a0021.wav"></audio>
+                  <audio controls preload="none" src="data/IPAC/Comp/Chinese/a0021.wav"></audio>
                 </td>
                 <td data-label="Ours">
                   <audio controls preload="none" src="data/IPAC/Our/Chinese/a0021.wav"></audio>
@@ -724,7 +713,7 @@
                   <audio controls preload="none" src="data/IPAC/Original/Chinese/a0027.wav"></audio>
                 </td>
                 <td data-label="Comp">
-                  <audio controls preload="none" src="data/IPAC/Original/Chinese/a0027.wav"></audio>
+                  <audio controls preload="none" src="data/IPAC/Comp/Chinese/a0027.wav"></audio>
                 </td>
                 <td data-label="Ours">
                   <audio controls preload="none" src="data/IPAC/Our/Chinese/a0027.wav"></audio>
@@ -737,7 +726,7 @@
                   <audio controls preload="none" src="data/IPAC/Original/Chinese/a0032.wav"></audio>
                 </td>
                 <td data-label="Comp">
-                  <audio controls preload="none" src="data/IPAC/Original/Chinese/a0032.wav"></audio>
+                  <audio controls preload="none" src="data/IPAC/Comp/Chinese/a0032.wav"></audio>
                 </td>
                 <td data-label="Ours">
                   <audio controls preload="none" src="data/IPAC/Our/Chinese/a0032.wav"></audio>
@@ -748,7 +737,7 @@
         </div>
 
         <div class="accent-block">
-          <h4>Indian</h4>
+          <h4>Hindi</h4>
           <table>
             <thead>
               <tr>
@@ -762,12 +751,12 @@
             <tbody>
               <tr>
                 <td class="transcript" data-label="Transcript">Gregson shoved back his chair and rose to his feet.</td>
-                <td class="accent" data-label="Accent">Indian</td>
+                <td class="accent" data-label="Accent">Hindi</td>
                 <td data-label="Original">
                   <audio controls preload="none" src="data/IPAC/Original/Indian/arctic_a0012.wav"></audio>
                 </td>
                 <td data-label="Comp">
-                  <audio controls preload="none" src="data/IPAC/Original/Indian/arctic_a0012.wav"></audio>
+                  <audio controls preload="none" src="data/IPAC/Comp/Indian/arctic_a0012.wav"></audio>
                 </td>
                 <td data-label="Ours">
                   <audio controls preload="none" src="data/IPAC/Our/Indian/arctic_a0012.wav"></audio>
@@ -775,12 +764,12 @@
               </tr>
               <tr>
                 <td class="transcript" data-label="Transcript">A combination of Canadian capital quickly organized and petitioned for the same privileges.</td>
-                <td class="accent" data-label="Accent">Indian</td>
+                <td class="accent" data-label="Accent">Hindi</td>
                 <td data-label="Original">
                   <audio controls preload="none" src="data/IPAC/Original/Indian/arctic_a0023.wav"></audio>
                 </td>
                 <td data-label="Comp">
-                  <audio controls preload="none" src="data/IPAC/Original/Indian/arctic_a0023.wav"></audio>
+                  <audio controls preload="none" src="data/IPAC/Comp/Indian/arctic_a0023.wav"></audio>
                 </td>
                 <td data-label="Ours">
                   <audio controls preload="none" src="data/IPAC/Our/Indian/arctic_a0023.wav"></audio>
@@ -788,12 +777,12 @@
               </tr>
               <tr>
                 <td class="transcript" data-label="Transcript">Whitefish Gregson whitefish and trout.</td>
-                <td class="accent" data-label="Accent">Indian</td>
+                <td class="accent" data-label="Accent">Hindi</td>
                 <td data-label="Original">
                   <audio controls preload="none" src="data/IPAC/Original/Indian/arctic_b0014.wav"></audio>
                 </td>
                 <td data-label="Comp">
-                  <audio controls preload="none" src="data/IPAC/Original/Indian/arctic_b0014.wav"></audio>
+                  <audio controls preload="none" src="data/IPAC/Comp/Indian/arctic_b0014.wav"></audio>
                 </td>
                 <td data-label="Ours">
                   <audio controls preload="none" src="data/IPAC/Our/Indian/arctic_b0014.wav"></audio>
@@ -801,12 +790,12 @@
               </tr>
               <tr>
                 <td class="transcript" data-label="Transcript">A month in Australia would finish me.</td>
-                <td class="accent" data-label="Accent">Indian</td>
+                <td class="accent" data-label="Accent">Hindi</td>
                 <td data-label="Original">
                   <audio controls preload="none" src="data/IPAC/Original/Indian/arctic_b0203.wav"></audio>
                 </td>
                 <td data-label="Comp">
-                  <audio controls preload="none" src="data/IPAC/Original/Indian/arctic_b0203.wav"></audio>
+                  <audio controls preload="none" src="data/IPAC/Comp/Indian/arctic_b0203.wav"></audio>
                 </td>
                 <td data-label="Ours">
                   <audio controls preload="none" src="data/IPAC/Our/Indian/arctic_b0203.wav"></audio>
@@ -836,7 +825,7 @@
                   <audio controls preload="none" src="data/IPAC/Original/Korean/a0087.wav"></audio>
                 </td>
                 <td data-label="Comp">
-                  <audio controls preload="none" src="data/IPAC/Original/Korean/a0087.wav"></audio>
+                  <audio controls preload="none" src="data/IPAC/Comp/Korean/a0087.wav"></audio>
                 </td>
                 <td data-label="Ours">
                   <audio controls preload="none" src="data/IPAC/Our/Korean/a0087.wav"></audio>
@@ -849,7 +838,7 @@
                   <audio controls preload="none" src="data/IPAC/Original/Korean/b0044.wav"></audio>
                 </td>
                 <td data-label="Comp">
-                  <audio controls preload="none" src="data/IPAC/Original/Korean/b0044.wav"></audio>
+                  <audio controls preload="none" src="data/IPAC/Comp/Korean/b0044.wav"></audio>
                 </td>
                 <td data-label="Ours">
                   <audio controls preload="none" src="data/IPAC/Our/Korean/b0044.wav"></audio>
@@ -862,7 +851,7 @@
                   <audio controls preload="none" src="data/IPAC/Original/Korean/b0280.wav"></audio>
                 </td>
                 <td data-label="Comp">
-                  <audio controls preload="none" src="data/IPAC/Original/Korean/b0280.wav"></audio>
+                  <audio controls preload="none" src="data/IPAC/Comp/Korean/b0280.wav"></audio>
                 </td>
                 <td data-label="Ours">
                   <audio controls preload="none" src="data/IPAC/Our/Korean/b0280.wav"></audio>
@@ -875,7 +864,7 @@
                   <audio controls preload="none" src="data/IPAC/Original/Korean/b0534.wav"></audio>
                 </td>
                 <td data-label="Comp">
-                  <audio controls preload="none" src="data/IPAC/Original/Korean/b0534.wav"></audio>
+                  <audio controls preload="none" src="data/IPAC/Comp/Korean/b0534.wav"></audio>
                 </td>
                 <td data-label="Ours">
                   <audio controls preload="none" src="data/IPAC/Our/Korean/b0534.wav"></audio>
@@ -902,10 +891,10 @@
                 <td class="transcript" data-label="Transcript">A combination of Canadian capital quickly organized and petitioned for the same privileges.</td>
                 <td class="accent" data-label="Accent">Vietnamese</td>
                 <td data-label="Original">
-                  <audio controls preload="none" src="data/IPAC/Original/Vietnamese/a0023.wav"></audio>
+                  <audio controls preload="none" src="data/IPAC/Original/Vienamese/a0023.wav"></audio>
                 </td>
                 <td data-label="Comp">
-                  <audio controls preload="none" src="data/IPAC/Original/Vietnamese/a0023.wav"></audio>
+                  <audio controls preload="none" src="data/IPAC/Comp/Vienamese/a0023.wav"></audio>
                 </td>
                 <td data-label="Ours">
                   <audio controls preload="none" src="data/IPAC/Our/Vienamese/a0023.wav"></audio>
@@ -915,10 +904,10 @@
                 <td class="transcript" data-label="Transcript">The promoter&#39;s eyes were heavy with little puffy bags under them.</td>
                 <td class="accent" data-label="Accent">Vietnamese</td>
                 <td data-label="Original">
-                  <audio controls preload="none" src="data/IPAC/Original/Vietnamese/a0073.wav"></audio>
+                  <audio controls preload="none" src="data/IPAC/Original/Vienamese/a0073.wav"></audio>
                 </td>
                 <td data-label="Comp">
-                  <audio controls preload="none" src="data/IPAC/Original/Vietnamese/a0073.wav"></audio>
+                  <audio controls preload="none" src="data/IPAC/Comp/Vienamese/a0073.wav"></audio>
                 </td>
                 <td data-label="Ours">
                   <audio controls preload="none" src="data/IPAC/Our/Vienamese/a0073.wav"></audio>
@@ -928,10 +917,10 @@
                 <td class="transcript" data-label="Transcript">The temperature dropped to fifty below zero and remained there the whole trip.</td>
                 <td class="accent" data-label="Accent">Vietnamese</td>
                 <td data-label="Original">
-                  <audio controls preload="none" src="data/IPAC/Original/Vietnamese/b0358.wav"></audio>
+                  <audio controls preload="none" src="data/IPAC/Original/Vienamese/b0358.wav"></audio>
                 </td>
                 <td data-label="Comp">
-                  <audio controls preload="none" src="data/IPAC/Original/Vietnamese/b0358.wav"></audio>
+                  <audio controls preload="none" src="data/IPAC/Comp/Vienamese/b0358.wav"></audio>
                 </td>
                 <td data-label="Ours">
                   <audio controls preload="none" src="data/IPAC/Our/Vienamese/b0358.wav"></audio>
@@ -941,10 +930,10 @@
                 <td class="transcript" data-label="Transcript">To my dearest and always appreciated friend I submit myself.</td>
                 <td class="accent" data-label="Accent">Vietnamese</td>
                 <td data-label="Original">
-                  <audio controls preload="none" src="data/IPAC/Original/Vietnamese/b0450.wav"></audio>
+                  <audio controls preload="none" src="data/IPAC/Original/Vienamese/b0450.wav"></audio>
                 </td>
                 <td data-label="Comp">
-                  <audio controls preload="none" src="data/IPAC/Original/Vietnamese/b0450.wav"></audio>
+                  <audio controls preload="none" src="data/IPAC/Comp/Vienamese/b0450.wav"></audio>
                 </td>
                 <td data-label="Ours">
                   <audio controls preload="none" src="data/IPAC/Our/Vienamese/b0450.wav"></audio>
