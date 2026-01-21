@@ -53,6 +53,29 @@
       font-weight: 600;
       color: var(--accent);
     }
+    .quick-links {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+    .quick-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--fg);
+      font-weight: 600;
+    }
+    .quick-links a:hover {
+      text-decoration: none;
+      border-color: var(--accent);
+      color: var(--accent);
+    }
     section { margin-top: 40px; }
     section h2 { margin: 0 0 16px; font-size: 1.4rem; }
     .card {
@@ -160,23 +183,16 @@
     </header>
 
     <section>
+      <div class="quick-links" aria-label="Primary links">
+        <a href="https://arxiv.org/abs/2510.10785">Paper (arXiv)</a>
+        <a href="#">Code (placeholder)</a>
+      </div>
+    </section>
+
+    <section>
       <h2>Abstract</h2>
       <div class="card">
         <p>Previous accent conversion (AC) methods, including foreign accent conversion (FAC), lack explicit control over the degree of modification. Because accent modification can alter the perceived speaker identity, balancing conversion strength and identity preservation is crucial. We present an AC framework that provides an explicit, user-controllable parameter to adjust the strength of pronunciation-level accent modification. Results show performance comparable to recent AC systems, stronger preservation of speaker identity, and unique support for controllable accent conversion.</p>
-      </div>
-    </section>
-
-    <section>
-      <h2>Paper</h2>
-      <div class="card">
-        <p><a href="https://arxiv.org/abs/2510.10785">arXiv preprint</a></p>
-      </div>
-    </section>
-
-    <section>
-      <h2>Code</h2>
-      <div class="card">
-        <p><a href="#">Code repository (placeholder)</a></p>
       </div>
     </section>
 
