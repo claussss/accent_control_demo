@@ -48,6 +48,11 @@
       font-size: 0.98rem;
     }
     header .affiliation span { display: block; }
+    header .status {
+      margin-top: 0.6rem;
+      font-weight: 600;
+      color: var(--accent);
+    }
     section { margin-top: 40px; }
     section h2 { margin: 0 0 16px; font-size: 1.4rem; }
     .card {
@@ -145,6 +150,7 @@
   <div class="wrap">
     <header>
       <h1>FAC-FACodec: Controllable Zero-Shot Foreign Accent Conversion with Factorized Speech Codec</h1>
+      <p class="status">Accepted at ICASSP 2026.</p>
       <p class="authors">Yurii Halychanskyi, Cameron Churchwell, Yutong Wen, Volodymyr Kindratenko</p>
       <p class="affiliation">
         <span>The Grainger College of Engineering, Siebel School of Computing and Data Science</span>
@@ -156,14 +162,21 @@
     <section>
       <h2>Abstract</h2>
       <div class="card">
-        <p>Previous accent conversion (AC) methods, including foreign accent conversion (FAC), lack explicit control over the degree of modification. Because accent modification can alter the perceived speaker identity, balancing conversion strength and identity preservation is crucial. We present an AC framework that provides an explicit, user-controllable parameter for accent modification. The method targets pronunciation while preserving suprasegmental cues such as intonation and phoneme durations. Results show performance comparable to recent AC systems, stronger preservation of speaker identity, and unique support for controllable accent conversion.</p>
+        <p>Previous accent conversion (AC) methods, including foreign accent conversion (FAC), lack explicit control over the degree of modification. Because accent modification can alter the perceived speaker identity, balancing conversion strength and identity preservation is crucial. We present an AC framework that provides an explicit, user-controllable parameter to adjust the strength of pronunciation-level accent modification. Results show performance comparable to recent AC systems, stronger preservation of speaker identity, and unique support for controllable accent conversion.</p>
       </div>
     </section>
 
     <section>
-      <h2>Code Release</h2>
+      <h2>Paper</h2>
       <div class="card">
-        <p><strong>Coming soon:</strong> The FAC-FACodec repository will be linked here after the review process concludes.</p>
+        <p><a href="https://arxiv.org/abs/2510.10785">arXiv preprint</a></p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Code</h2>
+      <div class="card">
+        <p><a href="#">Code repository (placeholder)</a></p>
       </div>
     </section>
 
